@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net8.0</TargetFramework>
+	<RootNamespace>E_Commerce.Presentation</RootNamespace>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Compile Remove="Context\**" />
+	<EmbeddedResource Remove="Context\**" />
+	<None Remove="Context\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+	  <ProjectReference Include="..\..\Core\E-Commerce.Domain\E-Commerce.Domain.csproj" />
+	<ProjectReference Include="..\..\Core\E-Commerce.Service_Abstraction\E-Commerce.Service_Abstraction.csproj" />
+  </ItemGroup>
+
+</Project>
