@@ -1,11 +1,13 @@
-﻿namespace E_Commerce.Service_Abstraction
+﻿using ECommerce.ServicesAbstractions.Common;
+
+namespace E_Commerce.Service_Abstraction
 {
     public interface IProductService
     {
         //Get All Products (Filteratiuon - search - order - Pagination) => Dto
-        public Task<IEnumerable<ProductResponse>> GetAllProductsAsync(CancellationToken cancellationToken = default);
+        public Task<PaginatedResult<ProductResponse>> GetAllProductsAsync(ProductQueryParameters productQueryParameters, CancellationToken cancellationToken);
         //Get Product By Id(int Id) =>returns Dto
-        public Task<ProductResponse?> GetProductByIdAsync(int Id, CancellationToken cancellationToken = default);
+        public Task<Result<ProductResponse>> GetProductByIdAsync(int Id, CancellationToken cancellationToken = default);
         //Get Brands
         public Task<IEnumerable<BrandResponse>> GetBrandsAsync(CancellationToken cancellationToken = default);
         //Get Types

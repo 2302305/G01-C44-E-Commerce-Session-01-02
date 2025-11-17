@@ -11,7 +11,7 @@ namespace E_Commerce.Presistence.Context.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "productBrands",
+                name: "ProductBrands",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,7 +24,7 @@ namespace E_Commerce.Presistence.Context.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "productsType",
+                name: "ProductsType",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -37,7 +37,7 @@ namespace E_Commerce.Presistence.Context.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "products",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -55,23 +55,23 @@ namespace E_Commerce.Presistence.Context.Migrations
                     table.ForeignKey(
                         name: "FK_products_productBrands_ProductBrandId",
                         column: x => x.ProductBrandId,
-                        principalTable: "productBrands",
+                        principalTable: "ProductBrands",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_products_productsType_ProductTypeId",
                         column: x => x.ProductTypeId,
-                        principalTable: "productsType",
+                        principalTable: "ProductsType",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_products_ProductBrandId",
-                table: "products",
+                table: "Products",
                 column: "ProductBrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_products_ProductTypeId",
-                table: "products",
+                table: "Products",
                 column: "ProductTypeId");
         }
 
@@ -79,13 +79,13 @@ namespace E_Commerce.Presistence.Context.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "products");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "productBrands");
+                name: "ProductBrands");
 
             migrationBuilder.DropTable(
-                name: "productsType");
+                name: "ProductsType");
         }
     }
 }

@@ -10,10 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.20" />
+    <PackageReference Include="StackExchange.Redis" Version="2.9.32" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\E-Commerce.Service\E-Commerce.Service.csproj" />
+    <ProjectReference Include="..\Ecommerce.Infrastructure.Service\Ecommerce.Infrastructure.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,8 +4,10 @@
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<ICartService, CartService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IAuthService, AuthService>();
             return services;
         }
     }
