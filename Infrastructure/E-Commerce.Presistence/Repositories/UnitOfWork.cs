@@ -2,7 +2,7 @@
 {
     public class UnitOfWork(ApplicationDbContext applicationDbContext) : IUnitOfWork
     {
-        private Dictionary<string, object> _Repo = [];
+        private readonly Dictionary<string, object> _Repo = [];
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) => await applicationDbContext.SaveChangesAsync(cancellationToken);
         public IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : Entity<TKey>
         {
@@ -15,6 +15,10 @@
             var repo = new Repository<TEntity, TKey>(applicationDbContext);
             _Repo.Add(typeName, repo);
             return repo;
+        }
+        public IRepository<TEntity, int> GetRepository<TEntity>() where TEntity : Entity<int>
+        {
+            return GetRepository<TEntity, int>();
         }
     }
 }
